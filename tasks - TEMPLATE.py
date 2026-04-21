@@ -6,9 +6,9 @@ import json
 import os
 import shutil
 from pathlib import Path
+import re # for regex matching of zip code and account number
 
 ### TODO-01
-import re # for regex matching of zip code and account number
 
 # Global variables
 page = ""
