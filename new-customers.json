@@ -1,0 +1,57 @@
+
+[
+  {
+    "first_name": "James",
+    "last_name": "Anderson",
+    "zip_code": "19433",
+    "currency": "Dollar"
+  },
+  {
+    "first_name": "Lucas",
+    "last_name": "Miller",
+    "zip_code": "24418",
+    "currency": "Pound"
+  },
+  {
+    "first_name": "Harper",
+    "last_name": "Martin",
+    "zip_code": "04244",
+    "currency": "Dollar"
+  },
+  {
+    "first_name": "William",
+    "last_name": "Smith",
+    "zip_code": "20047",
+    "currency": "Rupee"
+  },
+  {
+    "first_name": "Olivia",
+    "last_name": "Martin",
+    "zip_code": "62874-8271",
+    "currency": "Rupee"
+  },
+  {
+    "first_name": "Charlotte",
+    "last_name": "Brown",
+    "zip_code": "97455-6691",
+    "currency": "Dollar"
+  },
+  {
+    "first_name": "Lucas",
+    "last_name": "Davis",
+    "zip_code": "28652-5554",
+    "currency": "Pound"
+  },
+  {
+    "first_name": "Mia",
+    "last_name": "Martinez",
+    "zip_code": "29360",
+    "currency": "Pound"
+  },
+  {
+    "first_name": "Elijah",
+    "last_name": "Johnson",
+    "zip_code": "42191",
+    "currency": "Pound"
+  }
+]
