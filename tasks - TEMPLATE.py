@@ -8,7 +8,7 @@ import shutil
 from pathlib import Path
 
 ### TODO-01
-import re
+import re # for regex matching of zip code and account number
 
 # Global variables
 page = ""
