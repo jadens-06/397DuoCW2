@@ -18,7 +18,7 @@ acc_no = ""
 url = "https://com397bankdemo.z16.web.core.windows.net/#/login"
 
 ### TODO-02
-zip_code_re = r'^\d{5}(-\d{4})?$'
+zip_code_re = r'^\d{5}(-\d{4})?$' #notballlz
 
 # Locators
 bank_manager_login_button = "//html/body/div/div/div[2]/div/div[1]/div[2]/button"
