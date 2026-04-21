@@ -62,6 +62,10 @@ def bank_manager_login():
 
 def onboard_customers():
     ### TODO-05
+    # Create agreements folder if it doesn't exist
+    if not os.path.exists("agreements"):
+        os.makedirs("agreements")
+    
     # set up customer_file
     with open("new-customers.json", "r", encoding="UTF-8") as customer_file:
         customer_data = json.load(customer_file)
@@ -111,14 +115,15 @@ def open_account(fn, ln, cn):
     global acc_no
     page.on("dialog", handle_alert_acc) # setting acc_no
 
-    credit_agreement_fn = fn+"_"+ln+"_"+acc_no+"_credit_agreement.txt"
+    credit_agreement_fn = ln+"-"+fn+"-"+acc_no+"-credit-agreement.txt"
     with open(f"agreements/{credit_agreement_fn}", "w", encoding="UTF-8") as credit_agreement_file:
         credit_agreement_file.write(f"Business Terms and Conditions for account: {acc_no}\n")
 
     if cn == "Pound" or cn == "Rupee":
         ### TODO-10
-        page.on("dialog", handle_alert)
-        page.keyboard.press("Delete")
+        fx_agreement_fn = ln+"-"+fn+"-"+acc_no+"-FX-agreement.txt"
+        with open(f"agreements/{fx_agreement_fn}", "w", encoding="UTF-8") as fx_agreement_file:
+            fx_agreement_file.write(f"Foreign Exchange Terms and Conditions for account: {acc_no}\n")
 
 def zip_agreement_documents():
     ### TODO-11
