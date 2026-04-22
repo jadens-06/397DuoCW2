@@ -71,18 +71,18 @@ def onboard_customers():
         customer_data = json.load(customer_file)
     
     ### TODO-06
-        count = 0
-        for customer in customer_data:
-            # Extract customer fields
-            fn = customer["first_name"]
-            ln = customer["last_name"]
-            pc = customer["zip_code"]
-            cn = customer["currency"]
-            
-            # Add customer and open account
-            add_customer(fn, ln, pc, cn)
-            open_account(fn, ln, cn)
-            count += 1
+    count = 0
+    for customer in customer_data:
+        # Extract customer fields
+        fn = customer["first_name"]
+        ln = customer["last_name"]
+        pc = customer["zip_code"]
+        cn = customer["currency"]
+        
+        # Add customer and open account
+        add_customer(fn, ln, pc, cn)
+        open_account(fn, ln, cn)
+        count += 1
 
 def add_customer(fn, ln, pc, cn):
     print(f"Adding customer {fn} {ln}")
