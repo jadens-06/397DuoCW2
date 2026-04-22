@@ -9,6 +9,7 @@ from RPA.Excel.Files import Files as Excel
 @task
 def producer():
     """Split Excel rows into multiple output Work Items for the next step."""
+    print("PRODUCER STARTED")
     output = get_output_dir() or Path("output")
     filename = "orders.xlsx"
 
@@ -18,6 +19,7 @@ def producer():
         excel = Excel()
         excel.open_workbook(path)
         rows = excel.read_worksheet_as_table(header=True)
+        print("Rows found:", len(rows))
 
         for row in rows:
             payload = {
@@ -30,9 +32,12 @@ def producer():
 
 @task
 def consumer():
+    print("CONSUMER STARTED")
     zip_code_re = r"^\d{5}(-\d{4})?$"
+    inputs = list(workitems.inputs)
+    print("Inputs:", len(inputs))
 
-    for item in workitems.inputs:
+    for item in inputs:
         try:
             name = item.payload["Name"]
             zipcode = item.payload["Zip"]
