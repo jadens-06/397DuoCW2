@@ -34,10 +34,8 @@ def producer():
 def consumer():
     print("CONSUMER STARTED")
     zip_code_re = r"^\d{5}(-\d{4})?$"
-    inputs = list(workitems.inputs)
-    print("Inputs:", len(inputs))
 
-    for item in inputs:
+    for item in workitems.inputs:
         try:
             name = item.payload["Name"]
             zipcode = item.payload["Zip"]
