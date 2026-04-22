@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 from robocorp import workitems
 from robocorp.tasks import get_output_dir, task
@@ -29,16 +30,23 @@ def producer():
 
 @task
 def consumer():
-    """Process all the produced input Work Items from the previous step."""
+    zip_code_re = r"^\d{5}(-\d{4})?$"
+
     for item in workitems.inputs:
         try:
             name = item.payload["Name"]
             zipcode = item.payload["Zip"]
             product = item.payload["Product"]
+
             print(f"Processing order: {name}, {zipcode}, {product}")
-            assert 1000 <= zipcode <= 9999, "Invalid ZIP code"
+
+            if not re.match(zip_code_re, str(zipcode)):
+                raise AssertionError("Invalid ZIP code")
+
             item.done()
+
         except AssertionError as err:
             item.fail("BUSINESS", code="INVALID_ORDER", message=str(err))
+
         except KeyError as err:
             item.fail("APPLICATION", code="MISSING_FIELD", message=str(err))
