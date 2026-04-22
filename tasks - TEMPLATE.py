@@ -124,20 +124,23 @@ def open_account(fn, ln, cn):
         fx_agreement_fn = ln+"-"+fn+"-"+acc_no+"-FX-agreement.txt"
         with open(f"agreements/{fx_agreement_fn}", "w", encoding="UTF-8") as fx_agreement_file:
             fx_agreement_file.write(f"Foreign Exchange Terms and Conditions for account: {acc_no}\n")
+            # Additional FX agreement details can be added here if needed
 
 def zip_agreement_documents():
     ### TODO-11
     if os.path.exists("agreements"):
         shutil.make_archive("agreements", "zip", ".", "agreements")
+        # Copy the zip file to the document store
+        if not os.path.exists("document_store"):
+            os.makedirs("document_store")
+        shutil.copy("agreements.zip", "document_store/agreements.zip")
     
 def generate_report():
     global page
     page.locator(customers_button).click()
     ### TODO-12
-    table_content = page.locator(customer_list_table).text_content()
-    with open("report.txt", "w", encoding="UTF-8") as report_file:
-        report_file.write("Customer Report\n")
-        report_file.write(table_content)
+    output_dir = get_output_dir()
+    page.locator(customer_list_table).screenshot(path=str(output_dir / "customer_table_screenshot.png"))
 
 # Alert box handler functions
 def handle_alert(dialog):
