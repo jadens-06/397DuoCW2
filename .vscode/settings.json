@@ -1,7 +1,7 @@
 {
     "git.ignoreLimitWarning": true,
     "python.analysis.extraPaths": [
-        "/Users/jadenstitt06/397 CW2/."
+        "/Users/jadenstitt06/397 CW2/bank-cust-onboard/."
     ],
     "python.terminal.activateEnvironment": false
 }
