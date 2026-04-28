@@ -1,8 +1,8 @@
 from pathlib import Path
 import re
 
-from openpyxl import load_workbook
-from robocorp.tasks import get_output_dir, task, workitems
+from openpyxl import load_workbook  # type: ignore[import]
+from robocorp.tasks import get_output_dir, task, workitems  # type: ignore[reportMissingImports]
 
 
 @task
